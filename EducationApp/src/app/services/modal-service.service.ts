@@ -16,7 +16,6 @@ export class ModalService {
   modalOpenStatus$ = this.modalOpenStatusSource.asObservable();
   openModal(content : TemplateRef<any>)
   {
-    console.log(content);
     this.modalContent = content;
     this.modalOpenStatusSource.next(true);
   }
