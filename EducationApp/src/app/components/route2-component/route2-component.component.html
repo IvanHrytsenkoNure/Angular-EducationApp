@@ -1,36 +1,27 @@
 
-<div>
-    
-    <label for="header">Set a shared header</label>
-    <input id="header"type="text" [(ngModel)]="modalHeader">
-    
-</div>
 
 
 <button (click) = "modal1Clicked()">
 Modal1
 </button>
-
-
-
-
 <button (click) = "modal2Clicked()">
 Modal2
 </button>
 
 
+<ng-template #modalContent1>
+
+    <h1>Some modal 1 content </h1>
+
+</ng-template>
 
 
-<div class="modalWrapper" *ngIf='isOpen'>
+<ng-template #modalContent2>
 
- <div class="modalContent" >
-     <app-modal-window 
-     [content] = "modalContent"
-     [header] = "modalHeader"
-     (closeEvent) = "modalClosed()"
-     >
+    <h1>Fundamentally different modal 2 content </h1>
+    
+</ng-template>
 
-     </app-modal-window>
- </div>
 
-</div>
+
+

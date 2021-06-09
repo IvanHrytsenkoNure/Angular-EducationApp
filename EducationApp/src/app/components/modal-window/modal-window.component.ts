@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/services/modal-service.service';
 
 @Component({
   selector: 'app-modal-window',
@@ -7,20 +9,28 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ModalWindowComponent implements OnInit {
 
-  @Input() content: string = "";
-  @Input() header: string = "";
+  content: TemplateRef<any>;
+  header: string = "ModalHeader";
 
-  @Output() closeEvent = new EventEmitter<string>();
+  isOpen : boolean = false 
 
-  constructor() { }
+  constructor(private _modalService: ModalService) { }
+
+  
+  ngOnInit(): void {
+    console.log("OnInitModal")
+    this._modalService.modalOpenStatusSource.subscribe((status)=> 
+    {
+      this.isOpen = status;
+      this.content = this._modalService.modalContent;
+    }
+    )
+  }
+
 
   onCloseClick()
   {
-    this.closeEvent.emit();
+    this._modalService.closeModal();
   }
-
-  ngOnInit(): void {
-    
-  }
-
+  
 }

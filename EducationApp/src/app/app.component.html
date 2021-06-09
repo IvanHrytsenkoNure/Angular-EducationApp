@@ -1,3 +1,9 @@
+<ng-template #modalContent>
+
+    <h1 style="color: blue;">Modal content from navbar </h1>
+
+</ng-template>
+
 <div class="navbar">
     <button [routerLink]="['/route1']">
         Route1
@@ -8,13 +14,18 @@
     <button [routerLink]="['/route3']">
         Route3
     </button>
+
+    <button (click)="openModal()" style="color: red;">
+        OpenModal
+    </button>
+
+
 </div>
 <div class="header">
 Header
 </div>
 <div class="routComponent">
   <router-outlet
-  (activate)='onActivate($event)'
   >
 </router-outlet>
 </div>
@@ -25,3 +36,5 @@ Static Content
 <div class="footer">
 Footer
 </div>
+
+<app-modal-window></app-modal-window>

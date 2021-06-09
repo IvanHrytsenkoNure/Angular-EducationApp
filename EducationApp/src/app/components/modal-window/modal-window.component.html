@@ -1,9 +1,27 @@
-<div class="header">
-    {{header}}
 
-    <button (click) = "onCloseClick()">
-        X
-    </button>
+<div class="modalWrapper" *ngIf="isOpen">
+
+    <div class="modalContent" >
+
+        <div class="header">
+            {{header}}    
+            <button (click) = "onCloseClick()">
+                X
+            </button>
+        </div>
+        
+        <div class="content">
+            <ng-container *ngTemplateOutlet="content">    
+            </ng-container>
+    
+            <p>Some Static content in moodal</p>
+        
+        </div>
+
+
+    </div>
+    
+
 </div>
 
-<div class="content">{{content}}</div>
+

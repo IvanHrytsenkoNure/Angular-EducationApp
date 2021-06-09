@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { StaticContentComponent } from './components/static-content/static-content.component';
 import { Route1ComponentComponent } from './components/route1-component/route1-component.component';
 import { Route2ComponentComponent } from './components/route2-component/route2-component.component';
@@ -28,7 +27,7 @@ const routes: Routes = [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    NavigationBarComponent,
+    
     StaticContentComponent,
     Route1ComponentComponent,
     Route2ComponentComponent,

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ModalService } from 'src/app/services/modal-service.service';
 
 @Component({
   selector: 'app-route2-component',
@@ -7,33 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Route2ComponentComponent implements OnInit {
   
-  isOpen:boolean = false;
-  modalHeader: string = "Default header";  
-  modalContent: string = "";
+  @ViewChild ("modalContent1")
+  modalContent1: TemplateRef<any>;
 
-  constructor() { }
+  @ViewChild ("modalContent2")
+  modalContent2: TemplateRef<any>;
+
+  constructor(private _modalService : ModalService) { }
 
   ngOnInit(): void {
   }
 
-
-
-  
-  modalClosed()
-  {
-    this.isOpen = false;
-  }
-
   modal1Clicked()
   {
-    this.isOpen = true;
-    this.modalContent ="Modal 1 Content";
+    this._modalService.openModal(this.modalContent1);
   }
 
   modal2Clicked()
   {
-    this.isOpen = true;
-    this.modalContent = "Modal 2 Content";
+    this._modalService.openModal(this.modalContent2);
   }
 
 }
