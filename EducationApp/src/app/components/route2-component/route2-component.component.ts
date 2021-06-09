@@ -16,6 +16,7 @@ export class Route2ComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
   modalClosed()
   {
     this.isOpen = false;
