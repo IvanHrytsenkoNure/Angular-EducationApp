@@ -1,0 +1,36 @@
+
+<div>
+    
+    <label for="header">Set a shared header</label>
+    <input id="header"type="text" [(ngModel)]="modalHeader">
+    
+</div>
+
+
+<button (click) = "modal1Clicked()">
+Modal1
+</button>
+
+
+
+
+<button (click) = "modal2Clicked()">
+Modal2
+</button>
+
+
+
+
+<div class="modalWrapper" *ngIf='isOpen'>
+
+ <div class="modalContent" >
+     <app-modal-window 
+     [content] = "modalContent"
+     [header] = "modalHeader"
+     (closeEvent) = "modalClosed()"
+     >
+
+     </app-modal-window>
+ </div>
+
+</div>

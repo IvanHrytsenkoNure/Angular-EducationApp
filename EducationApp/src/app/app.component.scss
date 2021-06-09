@@ -1,0 +1,52 @@
+$border:1px solid black;
+
+.navbar{
+    width: 20%;
+    height: 95vh;
+    border: $border;    
+    float:left;
+    >button
+    {
+        border: $border;
+        width: 80%;
+        margin-top: 5%;
+        margin-left: 10% ; 
+
+    }
+}
+
+.header{
+    width: 79%;
+    height: 10vh;
+    border: $border;
+    float: left;
+    text-align: center;
+
+}
+
+
+.routComponent
+{
+    width: 39% ;
+    height: 75vh;
+    float: left;
+    border: $border;
+}
+
+.staticComponent
+{
+    width: 39%;
+    height: 75vh;
+    float: left;
+    border: $border;
+    font-size: 10vmin;
+}
+
+.footer
+{
+    float: left;
+    border: $border;
+    width: 79%;
+    height: 10vh;
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<div class="navbar">
+    <button [routerLink]="['/route1']">
+        Route1
+    </button >
+    <button [routerLink]="['/route2']">
+        Route2
+    </button>
+    <button [routerLink]="['/route3']">
+        Route3
+    </button>
+</div>
+<div class="header">
+Header
+</div>
+<div class="routComponent">
+  <router-outlet
+  (activate)='onActivate($event)'
+  >
+</router-outlet>
+</div>
+
+<div class="staticComponent">
+Static Content
+</div>
+<div class="footer">
+Footer
+</div>
