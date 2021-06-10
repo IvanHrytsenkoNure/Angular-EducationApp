@@ -19,6 +19,17 @@
         OpenModal
     </button>
 
+    <form [formGroup]="formGroup">
+            <app-dropdown formControlName="dropDown" [dataArray] = "elemetsToDropdown"></app-dropdown>        
+    </form>
+    
+    <div class="formsValues" >
+        {{formGroup.controls.dropDown.value.value}}
+        <button (click)="onChangeClick()">Change</button>
+
+    </div>
+
+
 
 </div>
 <div class="header">
@@ -31,7 +42,7 @@ Header
 </div>
 
 <div class="staticComponent">
-Static Content
+    <app-static-content></app-static-content>
 </div>
 <div class="footer">
 Footer

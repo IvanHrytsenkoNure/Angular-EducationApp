@@ -1,0 +1,40 @@
+.gridBody
+{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    "navbar header header"
+    "navbar routeComponent staticComponent"
+    "navbar footer footer";
+    & div{
+        border:solid black 3px
+    }
+}
+
+.navBar{
+    grid-area: navbar;    
+    
+}
+
+.header{
+    grid-area: header;
+
+}
+
+.routeComponent{
+    grid-area: routeComponent;
+    
+}
+
+.staticComponent{
+    grid-area: staticComponent;
+    
+}
+
+.footer{
+    grid-area: footer;
+    
+}

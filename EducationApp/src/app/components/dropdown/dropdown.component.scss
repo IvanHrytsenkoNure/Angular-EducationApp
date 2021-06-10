@@ -1,0 +1,13 @@
+.element
+{
+    background-color: sandybrown;
+
+    &:hover{
+        background-color: skyblue;
+    }
+
+    &.displaying
+    {
+        background-color: slategrey;
+    }
+}

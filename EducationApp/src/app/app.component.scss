@@ -13,7 +13,18 @@ $border:1px solid black;
         margin-left: 10% ; 
 
     }
+    
 }
+
+form{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%; 
+    height: 30%;
+    justify-self: center;
+    
+}
+
 
 .header{
     width: 79%;
@@ -39,7 +50,7 @@ $border:1px solid black;
     height: 75vh;
     float: left;
     border: $border;
-    font-size: 10vmin;
+    
 }
 
 .footer

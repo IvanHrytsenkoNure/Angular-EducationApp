@@ -11,7 +11,8 @@ import { Route2ComponentComponent } from './components/route2-component/route2-c
 import { Route3ComponentComponent } from './components/route3-component/route3-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 const routes: Routes = [
   
@@ -32,11 +33,13 @@ const routes: Routes = [
     Route1ComponentComponent,
     Route2ComponentComponent,
     Route3ComponentComponent,
-    ModalWindowComponent
+    ModalWindowComponent,
+    DropdownComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
