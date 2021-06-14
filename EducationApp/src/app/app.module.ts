@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 const routes: Routes = [
   
@@ -34,7 +35,8 @@ const routes: Routes = [
     Route2ComponentComponent,
     Route3ComponentComponent,
     ModalWindowComponent,
-    DropdownComponent
+    DropdownComponent,
+    UserRegistrationComponent
   ],
   imports: [
     FormsModule,

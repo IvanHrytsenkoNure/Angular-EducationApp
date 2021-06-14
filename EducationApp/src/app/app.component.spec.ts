@@ -58,8 +58,7 @@ describe('AppComponent', () => {
     await fixture.whenStable();
 
     //Act
-    component.onChangeClick();
-    
+    component.onChangeClick();   
 
     //Arrange
     expect(getDropdownMockComponent().writeValue).toHaveBeenCalled();

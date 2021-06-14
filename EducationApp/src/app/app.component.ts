@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Route1ComponentComponent } from './components/route1-component/route1-component.component';
 import { Route2ComponentComponent } from './components/route2-component/route2-component.component';
 import { ModalService } from './services/modal-service.service';
+import { UserRegistrationService } from './services/user-registration.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,11 @@ export class AppComponent implements OnInit{
   objectsToDropDown: any[] = [];
   objectValueSelector = (obj:any)=> obj.property; 
 
-  constructor(private _modalService: ModalService, private fb: FormBuilder)
+  constructor(
+    private _modalService: ModalService,
+     private fb: FormBuilder,
+     private _userRegistrationService : UserRegistrationService
+     )
   {
   }
   
@@ -34,7 +39,6 @@ export class AppComponent implements OnInit{
   openModal()
   {    
     this._modalService.openModal(this.modalContent);
-    console.log("inOpenModalLog");
   }
 
   onChangeClick()
@@ -49,5 +53,11 @@ export class AppComponent implements OnInit{
     {
       this.objectsToDropDown.push({property: Math.floor(Math.random() * (100 + 100 + 1)) -100})
     }
+  }
+
+
+  openRegister()
+  {    
+    this._userRegistrationService.openModal();
   }
 }

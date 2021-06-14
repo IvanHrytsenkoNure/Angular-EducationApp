@@ -1,0 +1,82 @@
+<div class="modalWrapper" *ngIf="(openStatus | async)">
+
+    <div class="modalContent" >
+
+        <div class="header">
+            User registration form   
+            <button (click) = "onCloseClick()">
+                X
+            </button>
+        </div>
+        
+        <div class="content">
+           <form [formGroup]='formGroup' (ngSubmit)="onSubmit()">
+            
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" formControlName="name">
+            </div>
+
+            <div>
+                <label for="surname">Surname:</label>
+                <input type="text" formControlName="surname">
+            </div>
+            
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" formControlName="email">
+            </div>
+            <div class="invalid-data"
+      *ngIf="formGroup.controls['email'].invalid && (formGroup.controls['email'].dirty || formGroup.controls['email'].touched)">
+      Email invalid !
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="text" formControlName="password">
+                  
+            </div>
+            <div class="invalid-data"
+            *ngIf="formGroup.controls['password'].invalid && (formGroup.controls['password'].dirty || formGroup.controls['password'].touched)">
+            Password must contain atleast 6 character
+            </div>
+
+
+            <div>
+                <label for="passwordMatch">Repeat password:</label>
+                <input type="text" formControlName="passwordMatch">                    
+            </div>
+
+            <div class="invalid-data"
+            *ngIf="formGroup.controls['passwordMatch'].invalid && (formGroup.controls['passwordMatch'].dirty || formGroup.controls['passwordMatch'].touched)">
+            Passwords doesnt match
+            </div>
+
+            <div>
+                <label for="age">Age:</label>
+                <app-dropdown formControlName="age" [dataArray]="ageArray"></app-dropdown>     
+            </div>
+
+            <div class="invalid-data"
+            *ngIf="formGroup.controls['age'].invalid && (formGroup.controls['age'].dirty || formGroup.controls['age'].touched)">
+            Must be older than 18
+            </div>
+
+   
+            <div></div>
+            
+
+            <button type="submit" [disabled]="!formGroup.valid">Submit</button>
+
+            <p>{{formGroup.invalid}}</p>
+            <p>{{formGroup.controls.email.invalid}}</p>
+
+           </form>
+        
+        </div>
+
+
+    </div>
+    
+
+</div>

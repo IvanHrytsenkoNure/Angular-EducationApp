@@ -1,0 +1,45 @@
+.modalWrapper{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000d6;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+
+
+.modalContent
+{
+    background: white;
+    width: 40%;
+    height: 50vh;
+    border: solid green;
+    
+}
+.header{
+    border: solid green;
+    height: 10%;
+    button{
+        float: right;
+        background: white;
+        color: green;
+        font-weight: bold;    
+    }
+}
+
+.invalid-data{
+    color: red;
+    font-size: 80%;
+}
+
+
+
+

@@ -13,7 +13,6 @@ export class ModalService {
   modalContent :TemplateRef<any>;
 
 
-  modalOpenStatus$ = this.modalOpenStatusSource.asObservable();
   openModal(content : TemplateRef<any>)
   {
     this.modalContent = content;
