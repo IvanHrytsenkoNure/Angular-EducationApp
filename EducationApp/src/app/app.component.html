@@ -20,18 +20,17 @@
     </button>
 
     <form [formGroup]="formGroup">
-            <app-dropdown formControlName="dropDown" [dataArray] = "elemetsToDropdown"></app-dropdown>        
+            <app-dropdown formControlName="dropDown" [dataArray] = "objectsToDropDown" [valueSelector] = "objectValueSelector" ></app-dropdown>        
     </form>
     
     <div class="formsValues" >
-        {{formGroup.controls.dropDown.value.value}}
+        {{objectValueSelector(formGroup.controls.dropDown.value)}}
         <button (click)="onChangeClick()">Change</button>
 
     </div>
 
-
-
 </div>
+
 <div class="header">
 Header
 </div>

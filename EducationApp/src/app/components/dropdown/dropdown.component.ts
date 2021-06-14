@@ -14,18 +14,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class DropdownComponent implements OnInit, ControlValueAccessor {
 
   @Input() dataArray: any[];
-  @Input() displayingValue: any = {value: "defaultDropdaunValue"}; 
+  @Input() valueSelector:any;
+  displayingValue = "inDropDownDefinedValue";
 
   isMenuDisplayed: boolean = false;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    if(!this.valueSelector)
+    {
+      this.valueSelector = (obj:any) => obj;
+    }
   }
 
-  writeValue(obj: any): void {
-    
-    this.displayingValue.value = obj.value;
-    
+  writeValue(obj: any): void {    
+    this.displayingValue = this.valueSelector(obj);    
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -34,7 +37,6 @@ export class DropdownComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
   
-
   onChange :any;
   onTouch:any;
 
@@ -44,13 +46,9 @@ export class DropdownComponent implements OnInit, ControlValueAccessor {
   }
 
   onSelect(index: number)
-  {
-    
-    this.displayingValue.value = this.dataArray[index];
-    this.onChange({value: this.dataArray[index]});
+  {    
+    this.displayingValue = this.valueSelector(this.dataArray[index]);
+    this.onChange(this.dataArray[index]);
     this.isMenuDisplayed = !this.isMenuDisplayed;
   }
-
-
-
 }

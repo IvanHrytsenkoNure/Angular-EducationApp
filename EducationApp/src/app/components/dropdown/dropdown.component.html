@@ -1,12 +1,12 @@
 
 
 
-<div class="element displaying" (click)="onDisplayingElementClick()" >
-    {{displayingValue.value}}
+<div class="element displaying" (click)="onDisplayingElementClick()">
+    {{displayingValue}}
 </div>
 
 <div class="selectMenu" *ngIf="isMenuDisplayed">    
     <div class="element" *ngFor="let item of dataArray; let i = index" (click)="onSelect(i)">
-        {{item}}
+        {{this.valueSelector(item)}}
     </div>
 </div>
