@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { UserModel } from 'src/app/models/userModel';
 import { UserRegistrationService } from 'src/app/services/user-registration.service';
 import { equalityValidator } from 'src/app/validator/equalityValidator';
 
@@ -33,14 +34,22 @@ export class UserRegistrationComponent implements OnInit {
       passwordMatch:this._formBuilder.control('', equalityValidator('password')),
       age: this._formBuilder.control('15', Validators.min(18)),
     })
-    
+
     this.valueValiditySubscription$ = this.formGroup.controls.password.valueChanges.subscribe(() => {
       this.formGroup .controls.passwordMatch.updateValueAndValidity();      
     });
   }
 
   onSubmit() {    
-    console.log(this.formGroup)
+
+    let userModel: UserModel = {
+      name: this.formGroup.get('name')?.value,
+      surname: this.formGroup.get('surname')?.value,
+      email: this.formGroup.get('email')?.value,
+      password: this.formGroup.get('password')?.value,
+      age: this.formGroup.get('age')?.value,
+    }
+    this._userRegistrationService.registrateUser(userModel);
     this._userRegistrationService.closeModal();
   }
   onCloseClick(){
