@@ -39,7 +39,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   {
         
     this.onChange(this.displayingValue);
-    //this.ngControl.control?.updateValueAndValidity();
+    
   }
 
   ngOnInit(): void {

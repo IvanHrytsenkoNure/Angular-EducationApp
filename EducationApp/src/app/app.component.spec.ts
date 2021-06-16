@@ -61,6 +61,7 @@ describe('AppComponent', () => {
     component.onChangeClick();   
 
     //Arrange
+    
     expect(getDropdownMockComponent().writeValue).toHaveBeenCalled();
   })
 
@@ -106,8 +107,7 @@ export class DropdownMock implements OnInit, ControlValueAccessor {
 
   constructor() { }
 
-  ngOnInit(): void {    
-  
+  ngOnInit(): void {      
   }
 
   writeValue = jasmine.createSpy('writeValue');

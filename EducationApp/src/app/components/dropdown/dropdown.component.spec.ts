@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { timer } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
+import { MaterialModuleModule } from '../modules/material-module/material-module.module';
 
 import { DropdownComponent } from './dropdown.component';
 
@@ -13,7 +15,11 @@ describe('DropdownComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DropdownComponent ],
-      imports:[FormsModule,ReactiveFormsModule]
+      imports:[
+        FormsModule,
+        ReactiveFormsModule,
+        MaterialModuleModule
+      ]
     })
     .compileComponents();
   });
@@ -92,15 +98,19 @@ describe('DropdownComponent', () => {
   })
 
 
-  it('should  render the menu after clicked', ()=>{
+  fit('should  render the menu after clicked', ()=>{
     //Arrange    
-    const hostElement: HTMLElement = fixture.nativeElement;
+    const triggerButton: DebugElement = fixture.debugElement.query(By.css("#triggerButton"));
+    const elementDisplaying = document.querySelector(".mat-menu-panel");
+    console.log("There are triggetButton anyElement of dropdown fixture under");
+    console.log(triggerButton)
 
     //Act
-    component.onDisplayingElementClick();
-    fixture.detectChanges()
-    const elementDisplaying = hostElement.querySelector('.selectMenu')   
+    triggerButton.nativeElement.click();
+    fixture.detectChanges();
 
+    
+    
 
     //Assert
     expect(elementDisplaying).toBeTruthy();

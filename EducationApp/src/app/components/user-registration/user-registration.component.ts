@@ -36,12 +36,13 @@ export class UserRegistrationComponent implements OnInit {
     })
 
     this.valueValiditySubscription$ = this.formGroup.controls.password.valueChanges.subscribe(() => {
-      this.formGroup .controls.passwordMatch.updateValueAndValidity();      
+      this.formGroup.controls.passwordMatch.updateValueAndValidity();
     });
+
+
   }
 
   onSubmit() {    
-
     let userModel: UserModel = {
       name: this.formGroup.get('name')?.value,
       surname: this.formGroup.get('surname')?.value,
@@ -53,6 +54,8 @@ export class UserRegistrationComponent implements OnInit {
     this._userRegistrationService.closeModal();
   }
   onCloseClick(){
+    
+    console.log();
     this._userRegistrationService.closeModal();
   }
 
