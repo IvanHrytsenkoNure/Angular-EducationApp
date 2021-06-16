@@ -14,6 +14,13 @@ import { ModalWindowComponent } from './components/modal-window/modal-window.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModuleModule } from './components/modules/material-module/material-module.module';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { InputComponent } from './components/input/input.component';
 
 const routes: Routes = [
   
@@ -24,28 +31,31 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    
+  declarations: [    
     AppComponent,
     FooterComponent,
-    HeaderComponent,
-    
+    HeaderComponent,        
     StaticContentComponent,
     Route1ComponentComponent,
     Route2ComponentComponent,
     Route3ComponentComponent,
     ModalWindowComponent,
     DropdownComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    InputComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    FontAwesomeModule,
+    MaterialModuleModule,
+    MatNativeDateModule,
+    RouterModule.forRoot(routes),    
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

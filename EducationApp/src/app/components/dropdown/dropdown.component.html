@@ -1,6 +1,4 @@
-
-
-
+<!-- 
 <div class="element displaying" (click)="onDisplayingElementClick()">
     {{displayingValue}}
 </div>
@@ -9,4 +7,21 @@
     <div class="element" *ngFor="let item of dataArray; let i = index" (click)="onSelect(i)">
         {{this.valueSelector(item)}}
     </div>
-</div>
+</div> -->
+
+
+
+<button  type="button" mat-raised-button color="primary"  [matMenuTriggerFor]="menu">{{displayingValue}}</button>
+
+<mat-menu #menu="matMenu" yPosition="below">
+    
+    <div mat-menu-item class="element" *ngFor="let item of dataArray; let i = index" (click)="onSelect(i)">
+        {{this.valueSelector(item)}}
+    </div>
+</mat-menu>
+
+<!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu> -->

@@ -3,57 +3,41 @@
     <div class="modalContent" >
 
         <div class="header">
-            User registration form   
-            <button (click) = "onCloseClick()">
-                X
-            </button>
+            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+            
+            
         </div>
         
         <div class="content">
            <form [formGroup]='formGroup' (ngSubmit)="onSubmit()">
             
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" formControlName="name">
+           
+            <div>         
+                <app-input formControlName='name'  [labelContent]="'Name :'"></app-input>
             </div>
-
-            <div>
-                <label for="surname">Surname:</label>
-                <input type="text" formControlName="surname">
+           
+            <div>         
+                <app-input formControlName='surname'  [labelContent]="'Surname :'"></app-input>
             </div>
             
-            <div>
-                <label for="email">Email:</label>
-                <input type="text" formControlName="email">
+
+            <div>         
+                <app-input formControlName='email' [warningMessage] = "'Email invalid !'" [labelContent]="'Email :'"></app-input>
             </div>
-            <div class="invalid-data"
-      *ngIf="formGroup.controls['email'].invalid && (formGroup.controls['email'].dirty || formGroup.controls['email'].touched)">
-      Email invalid !
+            
+
+            <div>         
+                <app-input formControlName='password' [warningMessage] = "'Password must contain atleast 6 character'" [labelContent]="'Password :'"></app-input>
+            </div>
+            
+            <div>         
+                <app-input formControlName='passwordMatch' [warningMessage] = "'Passwords doesnt match'" [labelContent]="'Password match :'"></app-input>
             </div>
 
-            <div>
-                <label for="password">Password:</label>
-                <input type="text" formControlName="password">
-                  
-            </div>
-            <div class="invalid-data"
-            *ngIf="formGroup.controls['password'].invalid && (formGroup.controls['password'].dirty || formGroup.controls['password'].touched)">
-            Password must contain atleast 6 character
-            </div>
+            
 
-
-            <div>
-                <label for="passwordMatch">Repeat password:</label>
-                <input type="text" formControlName="passwordMatch">                    
-            </div>
-
-            <div class="invalid-data"
-            *ngIf="formGroup.controls['passwordMatch'].invalid && (formGroup.controls['passwordMatch'].dirty || formGroup.controls['passwordMatch'].touched)">
-            Passwords doesnt match
-            </div>
-
-            <div>
-                <label for="age">Age:</label>
+            <div style="margin-top: 3%;">
+                <label for="age" style="margin-right: 3%;">Age:</label>
                 <app-dropdown formControlName="age" [dataArray]="ageArray"></app-dropdown>     
             </div>
 
@@ -62,14 +46,20 @@
             Must be older than 18
             </div>
 
-   
-            <div></div>
+
             
 
-            <button type="submit" [disabled]="!formGroup.valid">Submit</button>
+   
+            <div class="buttons">
+                
+                <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Submit</button>
+                <button class="btn btn-danger" (click)="onCloseClick()" >Cancel</button>
+            </div>
+            
 
-            <p>{{formGroup.invalid}}</p>
-            <p>{{formGroup.controls.email.invalid}}</p>
+            
+
+        
 
            </form>
         

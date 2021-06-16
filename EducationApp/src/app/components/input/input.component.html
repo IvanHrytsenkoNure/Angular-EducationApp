@@ -1,0 +1,6 @@
+<label for="field">{{labelContent}}</label>
+<input id="field" type="text" (input)="onInputChange($event)" [(ngModel)]="displayingValue">
+<div class="invalid-data"
+            *ngIf="ngControl.control?.invalid && (ngControl.control?.dirty || ngControl.control?.touched)">
+            {{warningMessage}}
+</div>

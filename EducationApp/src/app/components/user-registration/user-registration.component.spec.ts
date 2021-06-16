@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { UserModel } from 'src/app/models/userModel';
 import { UserRegistrationService } from 'src/app/services/user-registration.service';
-
 import { UserRegistrationComponent } from './user-registration.component';
 
 describe('UserRegistrationComponent', () => {
@@ -59,19 +58,15 @@ describe('UserRegistrationComponent', () => {
     })
     const spy = spyOn(userRegistration, 'registrateUser');
 
-
     //Act
     component.onSubmit()
 
-
     //Assert
     expect(spy).toHaveBeenCalledWith(userModel);
-
-
   })
-
-
 });
+
+
 @Component({
   selector: 'app-dropdown',
   template: '<div><div>',

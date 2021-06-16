@@ -1,0 +1,16 @@
+.invalid-data{
+    color: red;
+    font-size: 80%;
+    text-align: center;
+}
+
+input{
+    width: 100%;
+    transition: 300ms linear; /* Время изменения */
+    justify-self: center;
+    align-self: center;
+    &:hover{
+        border-color: blue;
+        
+    }
+}
